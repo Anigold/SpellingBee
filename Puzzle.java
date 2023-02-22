@@ -210,6 +210,17 @@ public class Puzzle {
      * 21 and 81 words as well as a pangram. Did the math, there will be
      * 26 choose 7 = 657,800 different combinations.
      * 
+     * *UPDATE: The above math is wrong. This doesn't work due to not forcing
+     * each letter to be in the starting position (i.e. be the middle letter).
+     * 
+     * The equation should instead be (26 choose 1) * (25 choose 6).
+     * We can choose each of the 26 letters to be in the starting position,
+     * and then choose 6 from the remaining 25 letters. 
+     * 
+     * We get 4,604,600 different permutations. 
+     * 
+     * RIP my CPU.
+     * 
      * Wrote an inefficient nChoosek algorithm, after an hour of running
      * it handed out ~300 solutions. This randomizer works functionally,
      * the rest of the list just needs to be generated.
