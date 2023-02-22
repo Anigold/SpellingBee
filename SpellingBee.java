@@ -160,12 +160,10 @@ public class SpellingBee {
 		for (String letter : currentWordAsList) {
 			shuffledWord.append(letter);
 		}
-		;
 
 		// Display shuffled word.
 		sbg.setBeehiveLetters(shuffledWord.toString());
 	}
-
 
 	/**Functional but incomplete...
 	 * 

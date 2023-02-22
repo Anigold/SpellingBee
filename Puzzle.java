@@ -41,6 +41,8 @@ public class Puzzle {
 
     String letters;
     String pattern;
+
+    // temporary while generating exhaustive list
     boolean hasPangram = false;
 
     LinkedHashMap<String, HashMap<String, Integer>> currentWordList = new LinkedHashMap<String, HashMap<String, Integer>>();
@@ -48,9 +50,9 @@ public class Puzzle {
      * wordList <word, wordInfo> = {
      * 
      * "word": {
-     * "score": 1,
-     * "pangram": false,
-     * "found": false,
+     *  "score": 1,
+     *  "pangram": false,
+     *  "found": false,
      * },
      * };
      */
@@ -136,8 +138,7 @@ public class Puzzle {
         boolean inDict = this.currentWordList.containsKey(guessString);
         boolean usesLetters = guessString.matches(String.format("^[%s]*$", this.letters.toLowerCase()));
         boolean isSize = guessString.length() >= 4;
-        boolean usesCenter = guessString
-                .matches(String.format("^(?=.*%s.*)[a-zA-Z]*$", this.letters.toLowerCase().charAt(0)));
+        boolean usesCenter = guessString.matches(String.format("^(?=.*%s.*)[a-zA-Z]*$", this.letters.toLowerCase().charAt(0)));
         boolean isFound = inDict && (this.currentWordList.get(guessString).get("found") != 1);
 
         if (!isSize) {
@@ -236,7 +237,7 @@ public class Puzzle {
             Random rand = new Random();
             rand.setSeed(System.currentTimeMillis());
 
-            String puzzle = "acegiop";
+            String puzzle = "acegiop"; // temporary, just in case all else fails
             int upperbound = 300;
 
             int randomInt = rand.nextInt(upperbound);
